@@ -1,0 +1,229 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Pizza Express Pizza</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/style.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+   
+    
+</head>
+<body>
+    <header>
+        <div class="container container_header">
+            <div class="header_left">
+                <img src="../image/logo.png" />
+                <p>Pizza ngon - Giá rẻ - Vận chuyển tận nhà</p>
+            </div>
+            <div class="header_right">
+                <a href="../layout/store.html">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <ul>
+                        <li>Giỏ hàng</li>
+                        <li>0 | 0đ</li>
+                    </ul>
+                </a>
+                <div class="register_login">
+                    @{
+                        var customer = Context.Session.GetString("FullName");
+                        var user = Context.Session.GetString("user");
+
+                        
+                    }
+                    @if (customer != null)
+                    {
+                        <span>@customer</span>
+                        <span>/</span>
+                        <span><a href="/home/logout"> Đăng xuất</a></span>
+
+                    }
+                    else if(user != null)
+                    {
+                        <span>@user</span>
+                        <span>/</span>
+                        <span><a href="/admin/listproducts">Admin</a>/</span>
+                        <span><a href="/home/logout"> Đăng xuất</a></span>
+                    }
+                    else
+                    {
+                        <span><a href="/home/login">Đăng nhập</a>/<a href="/home/register">Đăng ký</a></span>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <div class="container">
+            <ul class="menu_main">
+                <li>
+                    <a class="active" href="/home/pizza">Trang chủ</a>
+                </li>
+                <li>
+                    <a href="">Thực đơn</a>
+                    <div class="sub_menu">
+                        <ul>
+                            <li>
+                                <a href="/home/pizza">Pizza</a>
+                            </li>
+                            <li>
+                                <a href="/home/Bbq">Sườn BBQ</a>
+                            </li>
+                            <li>
+                                <a href="/home/spaghetti">Mỳ ý</a>
+                            </li>
+                            <li>
+                                <a href="/home/Salad">Salad</a>
+                            </li>
+                            <li>
+                                <a href="/home/drink">Đồ uống</a>
+                            </li>
+                            <li>
+                                <a href="#">Combo</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Khuyến mại</a>
+                </li>
+                <li>
+                    <a href="#">Chính sách</a>
+                </li>
+                <li>
+                    <a href="#">Blog</a>
+                </li>
+                <li>
+                    <a href="/home/contact">Liên hệ</a>
+                    <ol>
+                        <li>Gọi điện ngay - Ship liền tay (24/7)</li>
+                        <li><i class="fa-solid fa-phone"></i>  (024) 36.888.777</li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        @RenderBody();
+    </main>
+    <footer>
+        <div class="footer_top">
+            <img src="../image/footer_top/images/footer_top.png" width="100%" />
+        </div>
+        <div class="footer_bottom">
+            <div class="container">
+                <div class="information">
+                    <div class="logo">
+                        <img src="../image/logo.png" />
+                    </div>
+                    <h1>CÔNG TY TNHH PIZZA EXPRESS VIỆT NAM</h1>
+                    <p>
+                        Để đặt bánh pizza, vui lòng liên hệ tổng đài số: (024) 36.888.777 <br>
+
+                        Để phản ánh chất lượng dịch vụ, vui lòng gọi số: 0989.139.565 <br>
+
+                        Email: lienhepizzaexpress@gmail.com <br>
+
+                        Chính sách bảo mật thông tin cá nhân <br>
+
+                        Chính sách đổi/trả sản phẩm và hoàn tiền <br>
+
+                        Chính sách thanh toán <br>
+                    </p>
+                    <hr>
+                </div>
+                <div class="location">
+                    <div class="information">
+                        <img src="../image/footer_bottom/icon_1.png" />
+                        <p>107 D3 Ngọc Khánh, Ba Đình</p>
+                        <a href=""><i class="fa-solid fa-location-arrow"></i>Xem trên bản đồ</a>
+                    </div>
+                    <div class="information">
+                        <img src="../image/footer_bottom/icon_2.png" />
+                        <p>14 Ngõ 497 Nguyễn Trãi, Thanh Xuân</p>
+                        <a href=""><i class="fa-solid fa-location-arrow"></i>Xem trên bản đồ</a>
+                    </div>
+                    <div class="information">
+                        <img src="../image/footer_bottom/icon_3.png" />
+                        <p>6 Đồng Bát, Cầu Giấy</p>
+                        <a href=""><i class="fa-solid fa-location-arrow"></i>Xem trên bản đồ</a>
+                    </div>
+                    <div class="information">
+                        <img src="../image/footer_bottom/icon_4.png" />
+                        <p>52 Kim Đồng, Hoàng Mai</p>
+                        <a href=""><i class="fa-solid fa-location-arrow"></i>Xem trên bản đồ</a>
+                    </div>
+                </div>
+                <div class="information">
+                    <div class="notification">
+                        <img src="../image/footer_bottom/icon_5.png">
+                        <p>
+                            Công ty TNHH Pizza Express Việt Nam Số ĐKKD: 0106675108 <br>
+                            Địa Chỉ: Số 352 Đường Bưởi, P.Vĩnh Phúc, Q.Ba Đình, TP.Hà Nội <br>
+                            Số điện thoại: 02436888777 <br>
+                            Email: lienhepizzaexpress@gmail.com
+                        </p> <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        $(document).ready(function () {
+            $('body').on('click', '.btnAddToCart', function (e) {
+                e.preventDefault();
+                var id = $(this).data('id');
+                var quatity = 1;   
+                var tQuantity = $('#quantity_value').text();
+                if(tQuantity != ''){
+                    quatity = parseInt(tQuantity);
+                }
+                console.log(1);
+                var request = $.ajax({
+                    url: '/Cart/AddToCart',
+                    type: 'POST',
+                    data: { id: id, quantity: quatity },
+                    
+                });
+                request.done(function (rs) {
+                    if (rs.succsess) {
+                        alert(rs.msg);
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        function validateObj(object) {
+            var name = object.getAttribute('name');
+            var obj_error = document.getElementById('error_' + name);
+            var val = object.value;
+            var field_name = object.getAttribute('field-name');
+            if (val == '') {
+                obj_error.innerHTML = "Vui lòng nhập " + field_name;
+                obj_error.style.display = 'block';
+            } else {
+                obj_error.innerHTML = "";
+                obj_error.style.display = 'none';
+            }
+        }
+    </script>
+    <script>
+        function dangKytaiKhoan() {
+            var obj_fullname = document.getElementById('input_fullname');
+            validateObj(obj_fullname);
+            var obj_email = document.getElementById('input_email');
+            validateObj(obj_email);
+            var obj_password = document.getElementById('input_password')
+            validateObj(obj_password);
+            var obj_fullname_confirm = document.getElementById('input_password_confirm');
+            validateObj(obj_fullname_confirm);
+        }
+    </script>
+    
+</body>
+</html>

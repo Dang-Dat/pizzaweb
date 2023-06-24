@@ -1,0 +1,109 @@
+﻿ 
+@{
+    ViewData["Title"] = "AddToCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<pizzaweb.Models.ShopingCartItem>
+
+<div class="banner_title">
+    <h1>Giỏ hàng của bạn</h1>
+    <div class="breadcrum">
+        <a href="../layout/home_pizza.html">Trang chủ</a> / Giỏ hàng của bạn
+    </div>
+</div>
+<div class="list_product container">
+    
+    @foreach (var line in Model)
+    {
+        <div class="row">
+            <div class="product_info">
+                <a href="">
+                    <img width="100%" src="@line.ProductId" />
+                </a>
+                <div class="desc">
+                    <h2>
+                        <a href="" name="name">@line.Price</a>
+                    </h2>
+                    <div class="brand">Thương hiệu: Pizza Express</div>
+                    <div class="origin">Xuất xứ: VietNam</div>
+                    <div class="price">@line.Price</div>
+                </div>
+            </div>
+            <div class="action">
+                <div class="slg_sp">
+                    <button type="button" data-type="tru" class="btn-tru">-</button>
+                    <input type="text" value="" class="input_slg" />
+                    <button type="button" data-type="cong" class="btn-cong">+</button>
+                </div>
+                <div class="total_1_sp">
+                    170.000đ
+                </div>
+                <button class="btn-xoa" type="button">Xóa</button>
+            </div>
+        </div>
+    }
+
+    
+
+</div>
+<!-- <div class="total_price container">
+    <span>Tổng tiền: </span><span id="total_price">2.400.000</span>
+
+</div> -->
+<form >
+
+    <div class="row ">
+        <div class="customer_information">
+            <!-- <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Coupon code</div>
+            <div class="p-4">
+                <p class="font-italic mb-4">If you have a coupon code, please enter it in the box below</p>
+                <div class="input-group mb-4 border rounded-pill p-2">
+                    <input type="text" placeholder="Apply coupon" aria-describedby="button-addon3" class="form-control border-0">
+                    <div class="input-group-append border-0">
+                        <button id="button-addon3" type="button" class="btn btn-dark px-4 rounded-pill">
+                            <i class="fa fa-gift mr-2"></i>Apply coupon
+                        </button>
+                    </div>
+                </div>
+            </div> -->
+            <div class="">Thông tin khách hàng</div>
+            <div class="">
+
+                <div class="form-group" style="margin-bottom: 5px;">
+                    <label for="customerPhone">Họ và tên khách hàng</label>
+                    <input type="text" class="form-control" id="customerFullName" name="customerFullName" value="${userLogined.username }" placeholder="Full name">
+                </div>
+                <div class="form-group" style="margin-bottom: 5px;">
+                    <label for="customerEmail">Địa chỉ Email</label>
+                    <input type="email" class="form-control" id="customerEmail" name="customerEmail" value="${userLogined.email }" placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group" style="margin-bottom: 5px;">
+                    <label for="customerPhone">Phone</label>
+                    <input type="tel" class="form-control" id="customerPhone" name="customerPhone" value="${userLogined.phone }" placeholder="Phone">
+                </div>
+                <div class="form-group" style="margin-bottom: 5px;">
+                    <label for="customerAddress">Địa chỉ giao hàng</label>
+                    <input type="text" class="form-control" id="customerAddress" name="customerAddress" value="${userLogined.shippingAddress }" placeholder="Address">
+                </div>
+
+
+            </div>
+        </div>
+        <div class="customer_information">
+            <div class="">Thông tin thanh toán</div>
+            <div class="p-4">
+                <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.</p>
+                <ul class="list-unstyled mb-4">
+                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>${cart.totalPrice }</strong></li>
+                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>$0.00</strong></li>
+                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>$0.00</strong></li>
+                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong> <h5 class="font-weight-bold totalPrice">${cart.totalPrice}</h5></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <button type="submit" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</button>
+</form>
+
